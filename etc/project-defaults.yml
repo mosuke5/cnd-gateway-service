@@ -1,0 +1,13 @@
+swarm:
+  datasources:
+    data-sources:
+      InventoryDS:
+        driver-name: postgresql
+        connection-url: jdbc:postgresql://inventory-postgresql:5432/inventorydb
+        user-name: jboss
+        password: jboss
+store:
+  service:
+    url: http://store-service-mosuke5-dev.apps.na311.openshift.opentlc.com
+    freelancer-url: http://freelancer-service-mosuke5-dev.apps.na311.openshift.opentlc.com
+    project-url: http://project-service-mosuke5-dev.apps.na311.openshift.opentlc.com
