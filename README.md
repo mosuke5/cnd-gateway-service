@@ -13,6 +13,10 @@ xxxx
 ```
 $ export FREELANCER4J_PRJ=<your OpenShift project>
 
+// Edit config to your settings
+$ vim etc/project-defaults.yml
+
+
 // Create configmap for this service
 $ oc create configmap api-gateway-service --from-file=etc/project-defaults.yml -n $FREELANCER4J_PRJ
 
