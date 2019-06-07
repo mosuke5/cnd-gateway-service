@@ -1,4 +1,4 @@
-package com.redhat.coolstore.inventory;
+package com.redhat.freelancer4j.gateway;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -12,6 +12,8 @@ import javax.ws.rs.core.Response;
 import com.eclipsesource.json.Json;
 import com.eclipsesource.json.JsonArray;
 import com.eclipsesource.json.JsonObject;
+import com.redhat.freelancer4j.gateway.RestApplication;
+
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;

@@ -1,11 +1,12 @@
-package com.redhat.coolstore.inventory.service;
+package com.redhat.freelancer4j.gateway.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.inject.Specializes;
 
-import com.redhat.coolstore.inventory.model.Project;
+import com.redhat.freelancer4j.gateway.model.Project;
+import com.redhat.freelancer4j.gateway.service.ProjectService;
 
 @Specializes
 public class MockProjectService extends ProjectService {

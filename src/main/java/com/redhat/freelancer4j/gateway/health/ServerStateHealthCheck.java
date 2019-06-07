@@ -1,4 +1,4 @@
-package com.redhat.coolstore.inventory.health;
+package com.redhat.freelancer4j.gateway.health;
 
 import javax.enterprise.context.ApplicationScoped;
 

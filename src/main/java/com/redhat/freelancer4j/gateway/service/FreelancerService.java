@@ -1,4 +1,4 @@
-package com.redhat.coolstore.inventory.service;
+package com.redhat.freelancer4j.gateway.service;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import javax.ws.rs.core.Response;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.wildfly.swarm.spi.runtime.annotations.ConfigurationValue;
 
-import com.redhat.coolstore.inventory.model.Freelancer;
+import com.redhat.freelancer4j.gateway.model.Freelancer;
 
 @ApplicationScoped
 public class FreelancerService {

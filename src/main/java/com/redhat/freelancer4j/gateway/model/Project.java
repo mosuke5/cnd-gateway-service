@@ -1,4 +1,4 @@
-package com.redhat.coolstore.inventory.model;
+package com.redhat.freelancer4j.gateway.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

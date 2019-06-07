@@ -1,4 +1,4 @@
-package com.redhat.coolstore.inventory.rest;
+package com.redhat.freelancer4j.gateway.rest;
 
 import java.util.List;
 
@@ -13,10 +13,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import com.redhat.coolstore.inventory.model.Freelancer;
-import com.redhat.coolstore.inventory.model.Project;
-import com.redhat.coolstore.inventory.service.FreelancerService;
-import com.redhat.coolstore.inventory.service.ProjectService;
+import com.redhat.freelancer4j.gateway.model.Freelancer;
+import com.redhat.freelancer4j.gateway.model.Project;
+import com.redhat.freelancer4j.gateway.service.FreelancerService;
+import com.redhat.freelancer4j.gateway.service.ProjectService;
 
 @Path("/gateway")
 @RequestScoped

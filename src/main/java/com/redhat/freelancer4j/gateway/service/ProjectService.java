@@ -1,4 +1,4 @@
-package com.redhat.coolstore.inventory.service;
+package com.redhat.freelancer4j.gateway.service;
 
 import java.util.List;
 
@@ -12,10 +12,10 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.redhat.coolstore.inventory.model.Project;
-
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.wildfly.swarm.spi.runtime.annotations.ConfigurationValue;
+
+import com.redhat.freelancer4j.gateway.model.Project;
 
 @ApplicationScoped
 public class ProjectService {

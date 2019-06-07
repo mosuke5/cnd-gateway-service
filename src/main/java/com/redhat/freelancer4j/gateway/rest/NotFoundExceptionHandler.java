@@ -1,4 +1,4 @@
-package com.redhat.coolstore.inventory.rest;
+package com.redhat.freelancer4j.gateway.rest;
 
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.core.Response;
