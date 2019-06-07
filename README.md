@@ -12,7 +12,9 @@ $ java -jar target/api-gateway-service-1.0.0-SNAPSHOT-thorntail.jar -s src/main/
 ```
 
 ## Continuous Integration in Travis CI
-xxxx
+This repository is integrated with Travis CI. When you push to github, Travis CI will test automatically.
+
+Current status is here. https://travis-ci.org/mosuke5/cnd-gateway-service
 
 ## How to deploy to OpneShift
 ```
