@@ -40,7 +40,7 @@ public class ProjectService {
     * inject environment varible project_service_url
     */
     @Inject
-    @ConfigurationValue("store.service.project-url")
+    @ConfigurationValue("freelancer4j.project-url")
     private String projectUrl;
     /**
      * gets a list of all projects

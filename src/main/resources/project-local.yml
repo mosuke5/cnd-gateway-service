@@ -1,8 +1,6 @@
 swarm:
   http:
     port: 18080
-store:
-  service:
-    url: http://mock.store.service
-    freelancer-url: http://freelancer-service-mosuke5-dev.apps.na311.openshift.opentlc.com
-    project-url: http://project-service-mosuke5-dev.apps.na311.openshift.opentlc.com
+freelancer4j:
+  freelancer-url: http://freelancer-service-mosuke5-dev.apps.na311.openshift.opentlc.com
+  project-url: http://project-service-mosuke5-dev.apps.na311.openshift.opentlc.com

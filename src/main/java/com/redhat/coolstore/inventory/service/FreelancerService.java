@@ -33,7 +33,7 @@ public class FreelancerService {
     * inject environment varible freelancer_service_url
     */
     @Inject
-    @ConfigurationValue("store.service.freelancer-url")
+    @ConfigurationValue("freelancer4j.freelancer-url")
     private String freelancerUrl;
     
     /**

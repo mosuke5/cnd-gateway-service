@@ -4,7 +4,12 @@ Freelancer4j gateway service for Appmod Microservices Advanced course.
 Implementation: WildFly Swarm
 
 ## How to test
-xxxx
+```
+// Test in local browser
+$ mvn clean package
+$ java -jar target/api-gateway-service-1.0.0-SNAPSHOT-thorntail.jar -s src/main/resources/project-local.yml
+  -> Let's connect localhost:18080
+```
 
 ## Continuous Integration in Travis CI
 xxxx
