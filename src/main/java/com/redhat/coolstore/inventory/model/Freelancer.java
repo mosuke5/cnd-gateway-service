@@ -11,7 +11,7 @@ public class Freelancer {
     
     private String lastName;
     
-    private String emailAddress;
+    private String email;
     
     private String[] skills;
 
@@ -39,12 +39,12 @@ public class Freelancer {
 		this.lastName = lastName;
 	}
 
-	public String getEmailAddress() {
-		return emailAddress;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
+	public void setEmailAddress(String email) {
+		this.email = email;
 	}
 
 	public String[] getSkills() {
