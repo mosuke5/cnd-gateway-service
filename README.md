@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mosuke5/cnd-gateway-service.svg?branch=master)](https://travis-ci.org/mosuke5/cnd-gateway-service)
+
 # Freelancer4j gateway service
 Freelancer4j gateway service for Appmod Microservices Advanced course.
 
