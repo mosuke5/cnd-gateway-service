@@ -35,8 +35,6 @@ public class RestApiTest {
         return ShrinkWrap.create(WebArchive.class)
                 .addPackages(true, RestApplication.class.getPackage())
                 .addAsResource("project-local.yml", "project-defaults.yml")
-                //.addAsResource("META-INF/test-persistence.xml",  "META-INF/persistence.xml")
-                //.addAsResource("META-INF/test-load.sql",  "META-INF/test-load.sql")
                 .addAsWebInfResource("test-beans.xml", "beans.xml");
     }
 
@@ -50,39 +48,66 @@ public class RestApiTest {
         client.close();
     }
 
-    //@Test
-    //@RunAsClient
-    //public void testGetInventory() throws Exception {
-    //    WebTarget target = client.target("http://localhost:" + port).path("/inventory").path("/123456");
-    //    Response response = target.request(MediaType.APPLICATION_JSON).get();
-    //    assertThat(response.getStatus(), equalTo(new Integer(200)));
-    //    JsonObject value = Json.parse(response.readEntity(String.class)).asObject();
-    //    assertThat(value.getString("itemId", null), equalTo("123456"));
-    //    assertThat(value.getString("location", null), equalTo("location"));
-    //    assertThat(value.getInt("quantity", 0), equalTo(new Integer(99)));
-    //    assertThat(value.getString("link", null), equalTo("link"));
-    //}
+    @Test
+    @RunAsClient
+    public void testGetFreelancer() throws Exception {
+        WebTarget target = client.target("http://localhost:" + port).path("/gateway").path("/freelancers").path("123");
+        Response response = target.request(MediaType.APPLICATION_JSON).get();
+        assertThat(response.getStatus(), equalTo(new Integer(200)));
+        JsonObject value = Json.parse(response.readEntity(String.class)).asObject();
+        assertThat(value.getString("freelancerId", null), equalTo("123"));
+        assertThat(value.getString("firstName", null), equalTo("mock-first-name"));
+        assertThat(value.getString("lastName", null), equalTo("mock-last-name"));
+        assertThat(value.getString("email", null), equalTo("mock@example.com"));
+        assertThat(value.get("skills").asArray().get(0).asString(), equalTo("mock-skill-1"));
+        assertThat(value.get("skills").asArray().get(1).asString(), equalTo("mock-skill-2"));
+    }
+    
+    @Test
+    @RunAsClient
+    public void testGetFreelancers() throws Exception {
+        WebTarget target = client.target("http://localhost:" + port).path("/gateway").path("/freelancers");
+        Response response = target.request(MediaType.APPLICATION_JSON).get();
+        assertThat(response.getStatus(), equalTo(new Integer(200)));
+        JsonArray value = Json.parse(response.readEntity(String.class)).asArray();
+        
+        assertThat(value.get(0).asObject().getString("freelancerId", null), equalTo("mock-1"));
+        assertThat(value.get(0).asObject().getString("firstName", null), equalTo("mock-first-name-1"));
+        assertThat(value.get(1).asObject().getString("freelancerId", null), equalTo("mock-2"));
+        assertThat(value.get(1).asObject().getString("firstName", null), equalTo("mock-first-name-2"));
+    }
 
-    //@Test
-    //@RunAsClient
-    //public void testGetInventoryWithStoreStatus() throws Exception {
-    //    WebTarget target = client.target("http://localhost:" + port).path("/inventory").path("/123456").queryParam("storeStatus", true);
-    //    Response response = target.request(MediaType.APPLICATION_JSON).get();
-    //    assertThat(response.getStatus(), equalTo(new Integer(200)));
-    //    JsonObject value = Json.parse(response.readEntity(String.class)).asObject();
-    //    assertThat(value.getString("itemId", null), equalTo("123456"));
-    //    assertThat(value.getString("location", null), equalTo("location [MOCK]"));
-    //    assertThat(value.getInt("quantity", 0), equalTo(new Integer(99)));
-    //    assertThat(value.getString("link", null), equalTo("link"));
-    //}
-
-    //@Test
-    //@RunAsClient
-    //public void testGetInventorWhenItemIdDoesNotExist() throws Exception {
-    //    WebTarget target = client.target("http://localhost:" + port).path("/inventory").path("/doesnotexist");
-    //    Response response = target.request(MediaType.APPLICATION_JSON).get();
-    //    assertThat(response.getStatus(), equalTo(new Integer(404)));
-    //}
+    @Test
+    @RunAsClient
+    public void testGetProject() throws Exception {
+        WebTarget target = client.target("http://localhost:" + port).path("/gateway").path("/projects").path("123");
+        Response response = target.request(MediaType.APPLICATION_JSON).get();
+        assertThat(response.getStatus(), equalTo(new Integer(200)));
+        JsonObject value = Json.parse(response.readEntity(String.class)).asObject();
+        assertThat(value.getString("projectId", null), equalTo("123"));
+        assertThat(value.getString("ownerFirstName", null), equalTo("mock-first-name"));
+        assertThat(value.getString("ownerLastName", null), equalTo("mock-last-name"));
+        assertThat(value.getString("ownerEmail", null), equalTo("mock@example.com"));
+        assertThat(value.getString("projectTitle", null), equalTo("mock-title"));
+        assertThat(value.getString("projectDescription", null), equalTo("mock-description"));
+        assertThat(value.getString("projectStatus", null), equalTo("open"));
+    }
+    
+    @Test
+    @RunAsClient
+    public void testGetProjects() throws Exception {
+        WebTarget target = client.target("http://localhost:" + port).path("/gateway").path("/projects");
+        Response response = target.request(MediaType.APPLICATION_JSON).get();
+        assertThat(response.getStatus(), equalTo(new Integer(200)));
+        JsonArray value = Json.parse(response.readEntity(String.class)).asArray();
+        
+        assertThat(value.get(0).asObject().getString("projectId", null), equalTo("mock-1"));
+        assertThat(value.get(0).asObject().getString("ownerFirstName", null), equalTo("mock-first-name-1"));
+        assertThat(value.get(0).asObject().getString("projectStatus", null), equalTo("open"));
+        assertThat(value.get(1).asObject().getString("projectId", null), equalTo("mock-2"));
+        assertThat(value.get(1).asObject().getString("ownerFirstName", null), equalTo("mock-first-name-2"));
+        assertThat(value.get(1).asObject().getString("projectStatus", null), equalTo("completed"));
+    }
     
     @Test
     @RunAsClient
