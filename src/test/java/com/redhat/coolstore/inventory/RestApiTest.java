@@ -111,6 +111,22 @@ public class RestApiTest {
     
     @Test
     @RunAsClient
+    public void testGetProjectsByStatus() throws Exception {
+        WebTarget target = client.target("http://localhost:" + port).path("/gateway").path("/projects").path("/status").path("/completed");
+        Response response = target.request(MediaType.APPLICATION_JSON).get();
+        assertThat(response.getStatus(), equalTo(new Integer(200)));
+        JsonArray value = Json.parse(response.readEntity(String.class)).asArray();
+        
+        assertThat(value.get(0).asObject().getString("projectId", null), equalTo("mock-1"));
+        assertThat(value.get(0).asObject().getString("ownerFirstName", null), equalTo("mock-first-name-1"));
+        assertThat(value.get(0).asObject().getString("projectStatus", null), equalTo("completed"));
+        assertThat(value.get(1).asObject().getString("projectId", null), equalTo("mock-2"));
+        assertThat(value.get(1).asObject().getString("ownerFirstName", null), equalTo("mock-first-name-2"));
+        assertThat(value.get(1).asObject().getString("projectStatus", null), equalTo("completed"));
+    }
+    
+    @Test
+    @RunAsClient
     public void testHealthCheck() throws Exception {
         WebTarget target = client.target("http://localhost:" + port).path("/health");
         Response response = target.request(MediaType.APPLICATION_JSON).get();
@@ -119,7 +135,6 @@ public class RestApiTest {
         assertThat(value.getString("outcome", ""), equalTo("UP"));
         JsonArray checks = value.get("checks").asArray();
         assertThat(checks.size(), equalTo(new Integer(1)));
-        JsonObject state = checks.get(0).asObject();
     }
 
 }
